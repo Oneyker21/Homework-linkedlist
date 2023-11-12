@@ -30,7 +30,7 @@ class LinkedList {
         }
         div.innerHTML = "";
         while (current) {
-            div.innerHTML += current.value +", ";
+            div.innerHTML += current.value + ", ";
             current = current.next;
         }
     }
@@ -66,62 +66,63 @@ class LinkedList {
 const lista = new LinkedList();
 var div = document.getElementById("datos");
 
-function function_agregar(){
+function function_agregar() {
     const datoInput = document.getElementById("dato");
     const dato = datoInput.value;
     if (dato == "") {
-        alert (`No se admiten datos vacíos`);
+        alert(`No se admiten datos vacíos`);
     }
     else if (isNaN(dato)) {
-        alert (`Debe escribir   un número`);
+        alert(`Debe escribir un número`);
     }
-    else{
+    else {
         lista.insertNode(dato);
         datoInput.value = "";
-        alert (`Dato agregado a la lista`);
+        alert(`Dato agregado a la lista`);
         lista.display();
     }
 }
 
-    function function_mostrar() {
-        lista.display();
-    }
+function function_mostrar() {
+    lista.display();
+}
 
-    function function_eliminar() {
-        const datoInput = document.getElementById("dato");
-        const dato = datoInput.value;
-        if (dato == "") {
-            alert (`No se admiten datos vacíos`);
-        }else if (isNaN(dato)) {
-            alert (`Debe escribir un número`);
+function function_eliminar() {
+    const datoInput = document.getElementById("dato");
+    const dato = datoInput.value;
+    if (dato == "") {
+        alert(`No se admiten datos vacíos`);
+    } else if (isNaN(dato)) {
+        alert(`Debe escribir un número`);
+    }
+    else {
+        if (lista.deleteNode(dato)) {
+            alert(`Dato eliminado correctamente`);
+            datoInput.value = "";
+            lista.display();
         }
-        else{
-            if (lista.deleteNode(dato)) {
-                alert (`Dato eliminado correctamente`);
-                datoInput.value = "";
-                lista.display();
-            }
-            else{
-                alert (`Dato no existe`);
-            }
+        else {
+            alert(`Dato no existe`);
         }
     }
+}
 
-    function function_buscar() {
-        const datoInput = document.getElementById("dato");
-        const dato = datoInput.value;
-        if (dato == "") {
-            alert (`No se admiten datos vacíos`);
-        }else if (isNaN(dato)) {
-            alert (`Debe escribir un número`);
-        }
-        else{
-            if (lista.findNode(dato)!= null) {
-                alert (`Dato existe`);
-                datoInput.value = "";
-                lista.display();
-            }else{
-                alert (`Dato no existe`)
-            }
+function function_buscar() {
+    const datoInput = document.getElementById("dato");
+    const dato = datoInput.value;
+    if (dato == "") {
+        alert(`No se admiten datos vacíos`);
+    } else if (isNaN(dato)) {
+        alert(`Debe escribir un número`);
+    }
+    else {
+        if (lista.findNode(dato) != null) {
+            alert(`Dato existe`);
+            datoInput.value = "";
+            lista.display();
+        } else {
+            alert(`Dato no existe`)
+            
         }
     }
+}
