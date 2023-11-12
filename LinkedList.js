@@ -122,7 +122,6 @@ function function_buscar() {
             lista.display();
         } else {
             alert(`Dato no existe`)
-            
         }
     }
 }
